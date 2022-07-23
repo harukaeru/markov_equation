@@ -5,7 +5,7 @@ cache = set()
 def solve(n, should_print=True):
     if n == 1:
         if should_print:
-            print(1, 1, 1)
+            print(*seed)
         cache.add(seed)
         return [seed]
 
@@ -30,10 +30,10 @@ def solve(n, should_print=True):
 
         if should_print:
             if ans1 == ans2:
-                print(ans1[0], ans1[1], ans1[2])
+                print(*ans1)
             else:
-                print(ans1[0], ans1[1], ans1[2])
-                print(ans2[0], ans2[1], ans2[2])
+                print(*ans1)
+                print(*ans2)
     return ans_list
 
 
