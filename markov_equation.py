@@ -1,15 +1,16 @@
+SHOULD_PRINT = True
 seed = (1, 1, 1)
 
 cache = set()
 
-def solve(n, should_print=True):
+def solve(n):
     if n == 1:
-        if should_print:
+        if SHOULD_PRINT:
             print(*seed)
         cache.add(seed)
         return [seed]
 
-    prev_ans_list = solve(n - 1, should_print)
+    prev_ans_list = solve(n - 1)
 
     ans_list = []
     for prev_ans in prev_ans_list:
@@ -28,7 +29,7 @@ def solve(n, should_print=True):
             ans_list.append(ans2)
             cache.add(ans2)
 
-        if should_print:
+        if SHOULD_PRINT:
             if ans1 == ans2:
                 print(*ans1)
             else:
@@ -38,6 +39,6 @@ def solve(n, should_print=True):
 
 
 N = int(input())
-solve(N, should_print=True)
+solve(N)
 # display answers as sorted tuples
 # print(sorted(cache))
