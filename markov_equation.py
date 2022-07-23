@@ -13,11 +13,13 @@ def solve(n, should_print=True):
 
     ans_list = []
     for prev_ans in prev_ans_list:
-        next_z1 = 3 * prev_ans[0] * prev_ans[2] - prev_ans[1]
-        next_z2 = 3 * prev_ans[1] * prev_ans[2] - prev_ans[0]
+        # x z -> new_y
+        new_y = 3 * prev_ans[0] * prev_ans[2] - prev_ans[1]
+        # y z -> new_x
+        new_x = 3 * prev_ans[1] * prev_ans[2] - prev_ans[0]
 
-        ans1 = (prev_ans[0], prev_ans[2], next_z1)
-        ans2 = (prev_ans[1], prev_ans[2], next_z2)
+        ans1 = (prev_ans[0], prev_ans[2], new_y)
+        ans2 = (prev_ans[1], prev_ans[2], new_x)
 
         if (ans1 not in cache):
             ans_list.append(ans1)
